@@ -1,0 +1,18 @@
+webserver:
+  image: wordpress
+  ports:
+    - "80:80"
+  links:
+    - "dbserver:mysql"
+  container_name:
+    - "wordpress_webserver"
+
+dbserver:
+  image: mysql
+  volumes_from:
+    - dataonly
+  environment:
+    MYSQL_USER: wordpress
+    MYSQL_ROOT_PASSWORD: wordpress
+  container_name:
+    - "wordpress_dbserver"
