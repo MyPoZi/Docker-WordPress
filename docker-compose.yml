@@ -4,8 +4,6 @@ webserver:
     - "80:80"
   links:
     - "dbserver:mysql"
-  container_name:
-    - "wordpress_webserver"
 
 dbserver:
   image: mysql
@@ -14,5 +12,3 @@ dbserver:
   environment:
     MYSQL_USER: wordpress
     MYSQL_ROOT_PASSWORD: wordpress
-  container_name:
-    - "wordpress_dbserver"
